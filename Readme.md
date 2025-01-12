@@ -1,6 +1,6 @@
 # API-First design
 
-This approach utilizes creating the OpenAPI Spec 3.x compliant Swagger first and then utilizes ![openapi-generator](https://openapi-generator.tech/docs/generators/) to generate the scaffolding server code in multiple languages.
+This approach utilizes creating the OpenAPI Spec 3.x compliant Swagger first and then utilizes [openapi generator](https://openapi-generator.tech/docs/generators/) to generate the scaffolding server code in multiple languages.
 
 Install the OpenAPI Generator CLI using pip:
 ```
