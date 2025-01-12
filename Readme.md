@@ -62,8 +62,9 @@ Remember to handle errors appropriately and implement proper data validation as 
 ![Updated Get Tasks](updated-get-tasks.png)
 
 TODO:
-Implement one of the stubs with external API call, another with internal database with JPA etc. 
-Add exception handling and validations
-Utilize Very Good Security (VGS) for tokenizing sensitive data
-Add authentication to the APIs with Auth0
-CI/CD - Deploy the APIs to Kubernetes 
+- Implement one of the stubs with external API call, another with internal database with JPA etc. 
+- Add exception handling and validations
+- Add Test cases
+- Utilize Very Good Security (VGS) for tokenizing sensitive data
+- Add authentication to the APIs with Auth0
+- CI/CD - Deploy the APIs to Kubernetes 
