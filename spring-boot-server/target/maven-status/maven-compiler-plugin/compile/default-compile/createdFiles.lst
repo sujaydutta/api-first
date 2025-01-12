@@ -1,0 +1,9 @@
+org/openapitools/api/TasksApiController.class
+org/openapitools/configuration/SpringDocConfiguration.class
+org/openapitools/OpenApiGeneratorApplication.class
+org/openapitools/model/Task.class
+org/openapitools/api/TasksApi.class
+org/openapitools/api/ApiUtil.class
+org/openapitools/configuration/HomeController.class
+org/openapitools/model/NewTask.class
+org/openapitools/RFC3339DateFormat.class

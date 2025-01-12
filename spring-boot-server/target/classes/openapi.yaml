@@ -1,0 +1,136 @@
+openapi: 3.0.0
+info:
+  description: A simple API to manage tasks.
+  title: Task Management API
+  version: 1.0.0
+servers:
+- description: Production server
+  url: https://api.example.com/v1
+- description: Staging server
+  url: https://staging-api.example.com/v1
+paths:
+  /tasks:
+    get:
+      description: Retrieve a list of all tasks.
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Task'
+                type: array
+          description: A list of tasks.
+      summary: Get all tasks
+      x-accepts:
+      - application/json
+    post:
+      description: Add a new task to the list.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewTask'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+          description: Task created successfully.
+      summary: Create a new task
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /tasks/{taskId}:
+    delete:
+      description: Remove a specific task by its ID.
+      parameters:
+      - description: The ID of the task to delete.
+        explode: false
+        in: path
+        name: taskId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: Task deleted successfully.
+      summary: Delete a task by ID
+      x-accepts:
+      - application/json
+    get:
+      description: Retrieve details of a specific task by its ID.
+      parameters:
+      - description: The ID of the task to retrieve.
+        explode: false
+        in: path
+        name: taskId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+          description: Task details retrieved successfully.
+        "404":
+          description: Task not found.
+      summary: Get a task by ID
+      x-accepts:
+      - application/json
+    put:
+      description: Update the details of a specific task by its ID.
+      parameters:
+      - description: The ID of the task to update.
+        explode: false
+        in: path
+        name: taskId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewTask'
+        required: true
+      responses:
+        "200":
+          description: Task updated successfully.
+      summary: Update a task by ID
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+components:
+  schemas:
+    Task:
+      example:
+        id: "12345"
+        completed: false
+        title: Buy groceries
+      properties:
+        id:
+          example: "12345"
+          type: string
+        title:
+          example: Buy groceries
+          type: string
+        completed:
+          example: false
+          type: boolean
+      type: object
+    NewTask:
+      example:
+        title: Buy groceries
+      properties:
+        title:
+          example: Buy groceries
+          type: string
+      type: object
